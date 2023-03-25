@@ -5,10 +5,12 @@ import Hello.Hellospring.Repository.MemoryMemberRepository;
 import Hello.Hellospring.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional // data 저장, 변경할 때 @Transactional annotation 이 있어야 함.
 public class MemberService {
     private final MemberRepository memberRepository;
 
@@ -22,7 +24,7 @@ public class MemberService {
      */
 
 
-    public Long join(Member member) {
+    public Long join(Member member) { // jpa는 join data 들어올 때 transactional 안에서 실행되어야 함.
         //동명 중복회원 가입 불가
 //        Optional<Member> result = memberRepository.findByName(member.getId());
 //        result.ifPresent(m -> {
