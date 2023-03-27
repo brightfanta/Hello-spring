@@ -1,14 +1,12 @@
 package Hello.Hellospring.service;
 
 import Hello.Hellospring.Repository.MemberRepository;
-import Hello.Hellospring.Repository.MemoryMemberRepository;
 import Hello.Hellospring.domain.Member;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @Transactional // data 저장, 변경할 때 @Transactional annotation 이 있어야 함.
 public class MemberService {
